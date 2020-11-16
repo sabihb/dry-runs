@@ -4,13 +4,10 @@ jobs:
   semgrep:
     name: Scan
     runs-on: ubuntu-latest
-    env:
-      INPUT_PUBLISHURL: https://dev.semgrep.dev
     steps:
       - uses: actions/checkout@v1
       - uses: returntocorp/semgrep-action@v1
-        # Optional environment variable for inline PR comments (beta)
-        env:
+        env: # Optional environment variable for inline PR comments (beta)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
